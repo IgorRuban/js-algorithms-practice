@@ -14,6 +14,11 @@ const reverseStringFor = (str) => {
 };
 
 // console.log(reverseStringFor('hello'));
+
+// i идёт с 0 до конца строки
+// str.length - 1 - i → берём символы с конца
+// result += str[str.length - 1 - i]
+
 // ✔ Стартуем с последнего индекса
 // ✔ Проверяем, что индекс не меньше 0
 // ✔ Двигаемся назад через i--

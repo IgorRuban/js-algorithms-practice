@@ -1,0 +1,94 @@
+// 1️⃣3️⃣ Задача
+// Написать функцию, которая:
+// Принимает строку
+// Делает заглавной первую букву каждого слова
+
+// Примеры:
+// capitalizeWords('hello world') → 'Hello World'
+// capitalizeWords('javaScript is fun') → 'JavaScript Is Fun'
+
+const capitalizeWords = (str) => {
+  let result = ''; // сюда собираем итоговую строку
+  let inWord = false; // флаг: находимся ли мы внутри слова
+
+  for (let i = 0; i < str.length; i++) {
+    // Если встретили пробел
+    if (str[i] === ' ') {
+      result += ' '; // добавляем пробел
+      inWord = false; // слово закончилось
+
+      // Если это первая буква нового слова
+    } else if (!inWord) {
+      result += str[i].toUpperCase(); // делаем заглавной
+      inWord = true; // теперь мы внутри слова
+
+      // Если это обычная буква внутри слова
+    } else {
+      result += str[i]; // добавляем как есть
+    }
+  }
+
+  return result; // возвращаем готовую строку
+};
+
+// console.log(capitalizeWords('hello world')); // "Hello World"
+// console.log(capitalizeWords('javaScript is fun')); // "JavaScript Is Fun"
+
+const capitalizeWordsWhile = (str) => {
+  let result = ''; // итоговая строка
+  let inWord = false; // флаг слова
+  let i = 0; // индекс
+
+  while (i < str.length) {
+    // Если пробел
+    if (str[i] === ' ') {
+      result += ' '; // добавляем пробел
+      inWord = false; // сбрасываем состояние слова
+
+      // Если начало нового слова
+    } else if (!inWord) {
+      result += str[i].toUpperCase(); // делаем букву заглавной
+      inWord = true; // вошли в слово
+
+      // Обычная буква внутри слова
+    } else {
+      result += str[i]; // добавляем символ
+    }
+
+    i++; // обязательно увеличиваем индекс
+  }
+
+  return result;
+};
+
+// console.log(capitalizeWordsWhile('hello world')); // "Hello World"
+// console.log(capitalizeWordsWhile('javaScript is fun')); // "JavaScript Is Fun"
+
+const capitalizeWordsMethods = (str) => {
+  return str
+    .split(' ') // разбиваем строку на массив слов
+    .map((word) => word[0].toUpperCase() + word.slice(1)) // делаем первую букву заглавной
+    .join(' '); // собираем обратно в строку
+};
+
+// console.log(capitalizeWordsMethods('hello world')); // "Hello World"
+// console.log(capitalizeWordsMethods('javaScript is fun')); // "JavaScript Is Fun"
+
+// через replace + regex
+const capitalizeWordsRegex = (str) => {
+  return str.replace(/\b\w/g, (char) => char.toUpperCase());
+};
+// console.log(capitalizeWordsRegex('capitalize words regex '));
+
+// 🔎 Как это работает
+// /\b\w/g
+// Разберём по частям:
+// \b → граница слова
+// \w → первый символ слова
+// g → искать все совпадения
+
+// То есть выражение находит первую букву каждого слова.
+// replace(..., callback)
+
+// Каждую найденную букву мы заменяем на:
+// char => char.toUpperCase()

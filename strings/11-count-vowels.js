@@ -10,6 +10,12 @@
 // countVowels('hello')
 // countVowels('JavaScript')
 
+// Алгоритм:
+// Создаём счётчик = 0
+// Проходим по строке
+// Если символ в 'aeiouAEIOU' → увеличиваем счётчик
+// Возвращаем счётчик
+
 const countVowels = (str) => {
   let countChar = 0;
   let vowels = 'aeiou';

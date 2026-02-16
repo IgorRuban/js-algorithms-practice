@@ -7,6 +7,15 @@
 // capitalizeWords('hello world') → 'Hello World'
 // capitalizeWords('javaScript is fun') → 'JavaScript Is Fun'
 
+// Алгоритм:
+// Разбиваем строку на слова (split(' '))
+// Для каждого слова:
+// Берём первый символ → делаем заглавным
+// Добавляем остаток слова как есть
+// Соединяем слова обратно (join(' '))
+// Возвращаем результат
+// Альтернатива: str.replace(/ /g, '')
+
 const capitalizeWords = (str) => {
   let result = ''; // сюда собираем итоговую строку
   let inWord = false; // флаг: находимся ли мы внутри слова

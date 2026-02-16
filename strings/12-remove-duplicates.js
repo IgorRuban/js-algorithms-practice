@@ -7,6 +7,13 @@
 // removeDuplicates('hello') → 'helo'
 // removeDuplicates('JavaScript') → 'JavScript'
 
+// Алгоритм:
+// Создаём пустую строку result
+// Проходим по каждому символу строки
+// Проверяем: есть ли уже этот символ в result
+// Если нет → добавляем в result
+// Возвращаем result
+
 const removeDuplicates = (str) => {
   let result = '';
 

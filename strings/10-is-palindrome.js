@@ -6,6 +6,13 @@
 // "madam" → true
 // "hello" → false
 
+// Алгоритм:
+// Проходим по строке от начала до середины
+// Сравниваем str[i] и str[str.length - 1 - i]
+// Если хотя бы одна пара не совпала → false
+// Если все пары совпали → true
+// Альтернатива: перевернуть строку и сравнить с исходной
+
 const palindromeSearchFor = (str) => {
   for (let i = 0; i < str.length / 2; i++) {
     if (str[i] !== str[str.length - 1 - i]) {
